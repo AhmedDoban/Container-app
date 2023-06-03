@@ -37,7 +37,7 @@ function GroundTransportationMethod() {
             type="search"
             id="Origin"
             value={Shipping.Origen}
-            placeholder="Airport  , Sity or Zip Code"
+            placeholder="Location"
             onChange={(e) =>
               SetShipping({ ...Shipping, Origen: e.target.value })
             }
@@ -83,7 +83,7 @@ function GroundTransportationMethod() {
           <input
             type="search"
             id="Destination"
-            placeholder="Airport  , Sity or Zip Code"
+            placeholder="Location"
             value={Shipping.Destination}
             onChange={(e) =>
               SetShipping({ ...Shipping, Destination: e.target.value })

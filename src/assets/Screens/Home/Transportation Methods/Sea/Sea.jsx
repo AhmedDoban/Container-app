@@ -44,17 +44,16 @@ function SeaTransportationMethod() {
     Qty: 1,
   });
 
-  const HandleAddFcl = (type, qty) => {
+  const HandleAddFcl = (type, qty, indexOfType) => {
     if (FCLData.ContainerType !== "" && FCLData.Qty !== 0) {
       SetFCl([...FCl, { type, qty }]);
       SetFCLData({
         ContainerType: "",
         Qty: 1,
       });
-      const NewFclOptions = Fcl_Options.filter(
-        (data, ind) => ind !== data.indexOf(type)
-      );
-      SetFcl_Options(NewFclOptions);
+      let Data = [...Fcl_Options];
+      Data.splice(indexOfType, 1);
+      SetFcl_Options(Data);
     }
   };
   const HandleRemoveFcl = (index, type) => {
@@ -125,7 +124,7 @@ function SeaTransportationMethod() {
             type="search"
             id="Origin"
             value={Shipping.Origen}
-            placeholder="Airport  , Sity or Zip Code"
+            placeholder="Seaport  , Sity or Zip Code"
             onChange={(e) =>
               SetShipping({ ...Shipping, Origen: e.target.value })
             }
@@ -171,7 +170,7 @@ function SeaTransportationMethod() {
           <input
             type="search"
             id="Destination"
-            placeholder="Airport  , Sity or Zip Code"
+            placeholder="Seaport  , Sity or Zip Code"
             value={Shipping.Destination}
             onChange={(e) =>
               SetShipping({ ...Shipping, Destination: e.target.value })
@@ -270,7 +269,11 @@ function SeaTransportationMethod() {
 
                       <button
                         onClick={() =>
-                          HandleAddFcl(FCLData.ContainerType, FCLData.Qty)
+                          HandleAddFcl(
+                            FCLData.ContainerType,
+                            FCLData.Qty,
+                            Fcl_Options.indexOf(FCLData.ContainerType)
+                          )
                         }
                       >
                         +

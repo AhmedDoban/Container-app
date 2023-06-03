@@ -194,12 +194,19 @@
   position: relative;
   font-weight: 600;
   cursor: pointer;
-  padding: 8px 10px;
+  padding: 8px 10px 8px 35px;
   transition: var(--main-transition);
+}
+.AirTransportationMethod .card-input .data-overlay li::before {
+  position: absolute;
+  content: "\f5b0";
+  font-weight: 900;
+  font-family: "Font Awesome 5 Free";
+  left: 10px;
 }
 .AirTransportationMethod .card-input .data-overlay li:hover {
   color: var(--main-color);
-  padding-left: 15px;
+  padding-left: 50px;
 }
 .AirTransportationMethod .card-input input.active + .data-overlay {
   opacity: 1;

@@ -27,34 +27,34 @@ function AirTransportationMethod() {
   const [FCl, SetFCl] = useState([]);
   const [CargoFCL, SetCargoFCL] = useState("");
 
-  useEffect(() => {
-    let CargoLCLINPUT = FCl.map(
-      (data) => `${data.qty}x${data.type.slice(0, 4)}`
-    );
-    SetCargoFCL(CargoLCLINPUT.join(","));
-  }, [FCl]);
-
   const [Fcl_Options, SetFcl_Options] = useState([
     "20FT Container",
     "40FT Container",
     "40HC Container",
   ]);
+
+  useEffect(() => {
+    let CargoLCLINPUT = FCl.map(
+      (data) => `${data.qty}x${data.type.slice(0, 4)}`
+    );
+    SetCargoFCL(CargoLCLINPUT.join(","));
+  }, [FCl, Fcl_Options]);
+
   const [FCLData, SetFCLData] = useState({
     ContainerType: "",
     Qty: 1,
   });
 
-  const HandleAddFcl = (type, qty) => {
+  const HandleAddFcl = (type, qty, indexOfType) => {
     if (FCLData.ContainerType !== "" && FCLData.Qty !== 0) {
       SetFCl([...FCl, { type, qty }]);
       SetFCLData({
         ContainerType: "",
         Qty: 1,
       });
-      const NewFclOptions = Fcl_Options.filter(
-        (data, ind) => ind !== data.indexOf(type)
-      );
-      SetFcl_Options(NewFclOptions);
+      let Data = [...Fcl_Options];
+      Data.splice(indexOfType, 1);
+      SetFcl_Options(Data);
     }
   };
   const HandleRemoveFcl = (index, type) => {
@@ -270,7 +270,11 @@ function AirTransportationMethod() {
 
                       <button
                         onClick={() =>
-                          HandleAddFcl(FCLData.ContainerType, FCLData.Qty)
+                          HandleAddFcl(
+                            FCLData.ContainerType,
+                            FCLData.Qty,
+                            Fcl_Options.indexOf(FCLData.ContainerType)
+                          )
                         }
                       >
                         +
