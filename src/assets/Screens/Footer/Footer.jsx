@@ -1,5 +1,6 @@
 import React from "react";
 import "./Footer.css";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -61,19 +62,19 @@ function Footer() {
             <div className="titel">QUICK LINKS</div>
             <ul className="footer-links">
               <li>
-                <a href=""> Contact us </a>
+                <Link to="/"> Contact us </Link>
               </li>
               <li>
-                <a href=""> Service </a>
+                <Link to="/"> Service </Link>
               </li>
               <li>
-                <a href=""> Cost Calculatours </a>
+                <Link to="/"> Cost Calculatours </Link>
               </li>
               <li>
-                <a href=""> F&Q</a>
+                <Link to="/"> F&Q</Link>
               </li>
               <li>
-                <a href=""> News </a>
+                <Link to="/"> News </Link>
               </li>
             </ul>
           </div>

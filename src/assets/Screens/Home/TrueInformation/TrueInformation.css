@@ -4,7 +4,7 @@
 @import url("../../../css/root.css");
 
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# Root
+# True Information
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .TrueInformation {
   position: relative;
@@ -78,7 +78,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 5px  ;
+  gap: 5px;
 }
 .TrueInformation .container .bottom .box h1 {
   color: var(--main-color-alt);

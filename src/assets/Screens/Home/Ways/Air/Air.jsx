@@ -41,7 +41,7 @@ function Air(props) {
  ******************************************/
   const [FCl, SetFCl] = useState([]);
 
-  const Fcl_Options = ["20 FT Container", "40 FT Container", "40 HC Container"];
+  const Fcl_Options = ["20FT Container", "40FT Container", "40HC Container"];
   const [FCLData, SetFCLData] = useState({
     ContainerType: "",
     Qty: 0,

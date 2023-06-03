@@ -89,4 +89,9 @@
 }
 .footer .box .footer-links a {
   color: var(--white-color);
+  transition: var(--main-transition);
+}
+.footer .box .footer-links a:hover {
+  padding-left: 15px;
+  color: var(--main-color);
 }

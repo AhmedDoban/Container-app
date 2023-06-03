@@ -27,13 +27,13 @@ function App() {
     }
   };
 
-  Back_to_top.current.addEventListener("click", (e) => {
+  const HandleBack_to_top = (e) => {
     window.scrollTo({
       top: 0,
       left: 0,
       behavior: "smooth",
     });
-  });
+  };
 
   useEffect(() => {
     SetLogedOn(GetUser());
@@ -45,7 +45,12 @@ function App() {
     return (
       <React.Fragment>
         <div className="Auth">
-          <i class="fas fa-arrow-up back-to-top" ref={Back_to_top} />
+          <i
+            class="fas fa-arrow-up back-to-top"
+            ref={Back_to_top}
+            on
+            onClick={() => HandleBack_to_top()}
+          />
           <Routes>
             <Route path="" element={<Outlet />}>
               <Route path="" element={<Home Nav={Nav} />} />

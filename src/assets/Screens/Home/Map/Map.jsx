@@ -10,6 +10,7 @@ function Map() {
           height="200"
           frameBorder="0"
           allowFullScreen
+          titel="location"
         />
         <div
           className="data-over"
