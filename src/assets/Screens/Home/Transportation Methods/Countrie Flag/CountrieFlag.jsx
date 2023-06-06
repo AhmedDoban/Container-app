@@ -15,7 +15,7 @@ const CountrieFlag = (props) => {
 
 export default CountrieFlag;
 
-export const flagdata = [
+const flagdata = [
   {
     name: "Ascension Island",
     code: "AC",

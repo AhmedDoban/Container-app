@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./Air.css";
-import { CountriesData } from "../../../../../Countries";
 import "react-dropdown/style.css";
 import ReactDropdown from "react-dropdown";
 import CountrieFlag from "../Countrie Flag/CountrieFlag";
+import { AirportsData } from "./../../../../../AirportsData";
 
 function AirTransportationMethod() {
   /****************************************
@@ -135,7 +135,7 @@ function AirTransportationMethod() {
           />
           {/***************** Origin overlay ************************/}
           <ul className="data-overlay">
-            {CountriesData.filter((data) =>
+            {AirportsData.filter((data) =>
               Shipping.Origen === ""
                 ? data
                 : data.name
@@ -150,8 +150,7 @@ function AirTransportationMethod() {
                 ? data.code
                     ?.toLowerCase()
                     .includes(Shipping.Origen.toLowerCase())
-                : data.unlocs
-                    .join("")
+                : data.city
                     .toLowerCase()
                     .includes(Shipping.Origen.toLowerCase())
             )
@@ -207,7 +206,7 @@ function AirTransportationMethod() {
           />
           {/***************** Destination overlay ************************/}
           <ul className="data-overlay">
-            {CountriesData.filter((data) =>
+            {AirportsData.filter((data) =>
               Shipping.Destination === ""
                 ? data
                 : data.name
@@ -222,8 +221,7 @@ function AirTransportationMethod() {
                 ? data.code
                     ?.toLowerCase()
                     .includes(Shipping.Destination.toLowerCase())
-                : data.unlocs
-                    .join("")
+                : data.city
                     .toLowerCase()
                     .includes(Shipping.Destination.toLowerCase())
             )
