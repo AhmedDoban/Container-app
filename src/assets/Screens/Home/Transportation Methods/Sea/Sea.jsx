@@ -116,7 +116,10 @@ function SeaTransportationMethod() {
                 type="checkbox"
                 id="switchOrigin"
                 checked={OriginIndoor}
-                onChange={() => SetOriginIndoor(!OriginIndoor)}
+                onChange={() => {
+                  SetOriginIndoor(!OriginIndoor);
+                  SetShipping({ ...Shipping, Origen: "" });
+                }}
               />
               <span class="slider"></span>
             </label>
@@ -125,56 +128,64 @@ function SeaTransportationMethod() {
             type="search"
             id="Origin"
             value={Shipping.Origen}
-            placeholder="Seaport  , Sity or Zip Code"
+            placeholder={
+              OriginIndoor
+                ? "Enter Your Location"
+                : "Seaport  , Sity or Zip Code"
+            }
             onChange={(e) =>
               SetShipping({ ...Shipping, Origen: e.target.value })
             }
             onFocus={(e) => e.target.classList.add("active")}
             onBlur={(e) => e.target.classList.remove("active")}
           />
-          {/***************** Origin overlay ************************/}
-          <ul className="data-overlay">
-            {ContainersData.filter((data) =>
-              Shipping.Origen === ""
-                ? data
-                : data.name
-                    .toLowerCase()
-                    .includes(Shipping.Origen.toLowerCase())
-                ? data.name
-                    .toLowerCase()
-                    .includes(Shipping.Origen.toLowerCase())
-                : data.code
-                    ?.toLowerCase()
-                    .includes(Shipping.Origen.toLowerCase())
-                ? data.code
-                    ?.toLowerCase()
-                    .includes(Shipping.Origen.toLowerCase())
-                : data.unlocs
-                    .join("")
-                    .toLowerCase()
-                    .includes(Shipping.Origen.toLowerCase())
-            )
-              .slice(0, 5)
-              .map((data) => (
-                <li
-                  onClick={() =>
-                    SetShipping({ ...Shipping, Origen: data.name })
-                  }
-                >
-                  <div className="left">
-                    <i className="fa-solid fa-plane-departure"></i>
-                    <span>
-                      <p>{data.name}</p>
-                      <p>{data.country}</p>
-                    </span>
-                  </div>
-                  <div className="right">
-                    <CountrieFlag name={data.country} />
-                  </div>
-                </li>
-              ))}
-          </ul>
-          {/***************** End Origin overlay ************************/}
+          {OriginIndoor ? null : (
+            <React.Fragment>
+              {/***************** Origin overlay ************************/}
+              <ul className="data-overlay">
+                {ContainersData.filter((data) =>
+                  Shipping.Origen === ""
+                    ? data
+                    : data.name
+                        .toLowerCase()
+                        .includes(Shipping.Origen.toLowerCase())
+                    ? data.name
+                        .toLowerCase()
+                        .includes(Shipping.Origen.toLowerCase())
+                    : data.code
+                        ?.toLowerCase()
+                        .includes(Shipping.Origen.toLowerCase())
+                    ? data.code
+                        ?.toLowerCase()
+                        .includes(Shipping.Origen.toLowerCase())
+                    : data.unlocs
+                        .join("")
+                        .toLowerCase()
+                        .includes(Shipping.Origen.toLowerCase())
+                )
+                  .slice(0, 5)
+                  .map((data) => (
+                    <li
+                      onClick={() =>
+                        SetShipping({ ...Shipping, Origen: data.name })
+                      }
+                    >
+                      <div className="left">
+                        <i className="fa-solid fa-plane-departure"></i>
+                        <span>
+                          <p>{data.name}</p>
+                          <p>{data.country}</p>
+                        </span>
+                      </div>
+                      <div className="right">
+                        <CountrieFlag name={data.country} />
+                      </div>
+                    </li>
+                  ))}
+              </ul>
+              {/***************** End Origin overlay ************************/}
+            </React.Fragment>
+          )}
         </div>
         {/***************** Destination ************************/}
         <div className="card-input">
@@ -187,7 +198,10 @@ function SeaTransportationMethod() {
                 type="checkbox"
                 id="switchDestination"
                 checked={DestinationIndoor}
-                onChange={() => SetDestinationIndoor(!DestinationIndoor)}
+                onChange={() => {
+                  SetDestinationIndoor(!DestinationIndoor);
+                  SetShipping({ ...Shipping, Destination: "" });
+                }}
               />
               <span class="slider"></span>
             </label>
@@ -195,7 +209,11 @@ function SeaTransportationMethod() {
           <input
             type="search"
             id="Destination"
-            placeholder="Seaport  , Sity or Zip Code"
+            placeholder={
+              DestinationIndoor
+                ? "Enter Your Location"
+                : "Seaport  , Sity or Zip Code"
+            }
             value={Shipping.Destination}
             onChange={(e) =>
               SetShipping({ ...Shipping, Destination: e.target.value })
@@ -203,50 +221,54 @@ function SeaTransportationMethod() {
             onFocus={(e) => e.target.classList.add("active")}
             onBlur={(e) => e.target.classList.remove("active")}
           />
-          {/***************** Destination overlay ************************/}
-          <ul className="data-overlay">
-            {ContainersData.filter((data) =>
-              Shipping.Destination === ""
-                ? data
-                : data.name
-                    .toLowerCase()
-                    .includes(Shipping.Destination.toLowerCase())
-                ? data.name
-                    .toLowerCase()
-                    .includes(Shipping.Destination.toLowerCase())
-                : data.code
-                    ?.toLowerCase()
-                    .includes(Shipping.Destination.toLowerCase())
-                ? data.code
-                    ?.toLowerCase()
-                    .includes(Shipping.Destination.toLowerCase())
-                : data.unlocs
-                    .join("")
-                    .toLowerCase()
-                    .includes(Shipping.Destination.toLowerCase())
-            )
-              .slice(0, 5)
-              .map((data) => (
-                <li
-                  onClick={() =>
-                    SetShipping({ ...Shipping, Destination: data.name })
-                  }
-                >
-                  <div className="left">
-                    <i className="fa-solid fa-plane-departure"></i>
-                    <span>
-                      <p>{data.name}</p>
-                      <p>{data.country}</p>
-                    </span>
-                  </div>
-                  <div className="right">
-                    <CountrieFlag name={data.country} />
-                  </div>
-                </li>
-              ))}
-          </ul>
+          {DestinationIndoor ? null : (
+            <React.Fragment>
+              {/***************** Destination overlay ************************/}
+              <ul className="data-overlay">
+                {ContainersData.filter((data) =>
+                  Shipping.Destination === ""
+                    ? data
+                    : data.name
+                        .toLowerCase()
+                        .includes(Shipping.Destination.toLowerCase())
+                    ? data.name
+                        .toLowerCase()
+                        .includes(Shipping.Destination.toLowerCase())
+                    : data.code
+                        ?.toLowerCase()
+                        .includes(Shipping.Destination.toLowerCase())
+                    ? data.code
+                        ?.toLowerCase()
+                        .includes(Shipping.Destination.toLowerCase())
+                    : data.unlocs
+                        .join("")
+                        .toLowerCase()
+                        .includes(Shipping.Destination.toLowerCase())
+                )
+                  .slice(0, 5)
+                  .map((data) => (
+                    <li
+                      onClick={() =>
+                        SetShipping({ ...Shipping, Destination: data.name })
+                      }
+                    >
+                      <div className="left">
+                        <i className="fa-solid fa-plane-departure"></i>
+                        <span>
+                          <p>{data.name}</p>
+                          <p>{data.country}</p>
+                        </span>
+                      </div>
+                      <div className="right">
+                        <CountrieFlag name={data.country} />
+                      </div>
+                    </li>
+                  ))}
+              </ul>
 
-          {/***************** End Destination overlay ************************/}
+              {/***************** End Destination overlay ************************/}
+            </React.Fragment>
+          )}
         </div>
         <div className="card-input">
           <label htmlFor="Destination">
