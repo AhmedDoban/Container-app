@@ -50,7 +50,22 @@ function GroundTransportationMethod() {
             {CountriesData.filter((data) =>
               Shipping.Origen === ""
                 ? data
-                : data.name.toLowerCase().includes(Shipping.Origen)
+                : data.name
+                    .toLowerCase()
+                    .includes(Shipping.Origen.toLowerCase())
+                ? data.name
+                    .toLowerCase()
+                    .includes(Shipping.Origen.toLowerCase())
+                : data.code
+                    ?.toLowerCase()
+                    .includes(Shipping.Origen.toLowerCase())
+                ? data.code
+                    ?.toLowerCase()
+                    .includes(Shipping.Origen.toLowerCase())
+                : data.unlocs
+                    .join("")
+                    .toLowerCase()
+                    .includes(Shipping.Origen.toLowerCase())
             )
               .slice(0, 5)
               .map((data) => (
@@ -106,7 +121,22 @@ function GroundTransportationMethod() {
             {CountriesData.filter((data) =>
               Shipping.Destination === ""
                 ? data
-                : data.name.toLowerCase().includes(Shipping.Destination)
+                : data.name
+                    .toLowerCase()
+                    .includes(Shipping.Destination.toLowerCase())
+                ? data.name
+                    .toLowerCase()
+                    .includes(Shipping.Destination.toLowerCase())
+                : data.code
+                    ?.toLowerCase()
+                    .includes(Shipping.Destination.toLowerCase())
+                ? data.code
+                    ?.toLowerCase()
+                    .includes(Shipping.Destination.toLowerCase())
+                : data.unlocs
+                    .join("")
+                    .toLowerCase()
+                    .includes(Shipping.Destination.toLowerCase())
             )
               .slice(0, 5)
               .map((data, index) => (
