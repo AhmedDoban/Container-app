@@ -3,6 +3,7 @@ import "./Sea.css";
 import { CountriesData } from "../../../../../Countries";
 import "react-dropdown/style.css";
 import ReactDropdown from "react-dropdown";
+import CountrieFlag from "../Countrie Flag/CountrieFlag";
 
 function SeaTransportationMethod() {
   /****************************************
@@ -145,7 +146,16 @@ function SeaTransportationMethod() {
                     SetShipping({ ...Shipping, Origen: data.name })
                   }
                 >
-                  {data.name}
+                  <div className="left">
+                    <i className="fa-solid fa-plane-departure"></i>
+                    <span>
+                      <p>{data.name}</p>
+                      <p>{data.country}</p>
+                    </span>
+                  </div>
+                  <div className="right">
+                    <CountrieFlag name={data.country} />
+                  </div>
                 </li>
               ))}
           </ul>
@@ -192,7 +202,16 @@ function SeaTransportationMethod() {
                     SetShipping({ ...Shipping, Destination: data.name })
                   }
                 >
-                  {data.name}
+                  <div className="left">
+                    <i className="fa-solid fa-plane-departure"></i>
+                    <span>
+                      <p>{data.name}</p>
+                      <p>{data.country}</p>
+                    </span>
+                  </div>
+                  <div className="right">
+                    <CountrieFlag name={data.country} />
+                  </div>
                 </li>
               ))}
           </ul>

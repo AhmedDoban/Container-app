@@ -37,8 +37,9 @@
   display: flex;
   gap: 15px;
   padding: 10px 15px;
-  transition: var(--main-transition);
   cursor: pointer;
+  color: var(--orange-color);
+  transition: var(--main-transition);
 }
 .TransportationMethods .container .menu li.active {
   background-color: var(--orange-color);

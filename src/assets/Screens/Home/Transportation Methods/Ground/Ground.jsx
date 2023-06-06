@@ -1,6 +1,7 @@
 import "./Ground.css";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { CountriesData } from "../../../../../Countries";
+import CountrieFlag from "../Countrie Flag/CountrieFlag";
 
 function GroundTransportationMethod() {
   /****************************************
@@ -58,7 +59,16 @@ function GroundTransportationMethod() {
                     SetShipping({ ...Shipping, Origen: data.name })
                   }
                 >
-                  {data.name}
+                  <div className="left">
+                    <i className="fa-solid fa-location-dot"></i>
+                    <span>
+                      <p>{data.name}</p>
+                      <p>{data.country}</p>
+                    </span>
+                  </div>
+                  <div className="right">
+                    <CountrieFlag name={data.country} />
+                  </div>
                 </li>
               ))}
           </ul>
@@ -99,13 +109,23 @@ function GroundTransportationMethod() {
                 : data.name.toLowerCase().includes(Shipping.Destination)
             )
               .slice(0, 5)
-              .map((data) => (
+              .map((data, index) => (
                 <li
                   onClick={() =>
                     SetShipping({ ...Shipping, Destination: data.name })
                   }
+                  key={index}
                 >
-                  {data.name}
+                  <div className="left">
+                    <i className="fa-solid fa-location-dot"></i>
+                    <span>
+                      <p>{data.name}</p>
+                      <p>{data.country}</p>
+                    </span>
+                  </div>
+                  <div className="right">
+                    <CountrieFlag name={data.country} />
+                  </div>
                 </li>
               ))}
           </ul>

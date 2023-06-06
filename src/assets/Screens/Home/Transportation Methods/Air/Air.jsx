@@ -3,6 +3,7 @@ import "./Air.css";
 import { CountriesData } from "../../../../../Countries";
 import "react-dropdown/style.css";
 import ReactDropdown from "react-dropdown";
+import CountrieFlag from "../Countrie Flag/CountrieFlag";
 
 function AirTransportationMethod() {
   /****************************************
@@ -140,13 +141,23 @@ function AirTransportationMethod() {
                 : data.name.toLowerCase().includes(Shipping.Origen)
             )
               .slice(0, 5)
-              .map((data) => (
+              .map((data, index) => (
                 <li
                   onClick={() =>
                     SetShipping({ ...Shipping, Origen: data.name })
                   }
+                  key={index}
                 >
-                  {data.name}
+                  <div className="left">
+                    <i className="fa-solid fa-plane-departure"></i>
+                    <span>
+                      <p>{data.name}</p>
+                      <p>{data.country}</p>
+                    </span>
+                  </div>
+                  <div className="right">
+                    <CountrieFlag name={data.country} />
+                  </div>
                 </li>
               ))}
           </ul>
@@ -187,13 +198,23 @@ function AirTransportationMethod() {
                 : data.name.toLowerCase().includes(Shipping.Destination)
             )
               .slice(0, 5)
-              .map((data) => (
+              .map((data, index) => (
                 <li
                   onClick={() =>
                     SetShipping({ ...Shipping, Destination: data.name })
                   }
+                  key={index}
                 >
-                  {data.name}
+                  <div className="left">
+                    <i className="fa-solid fa-plane-departure"></i>
+                    <span>
+                      <p>{data.name}</p>
+                      <p>{data.country}</p>
+                    </span>
+                  </div>
+                  <div className="right">
+                    <CountrieFlag name={data.country} />
+                  </div>
                 </li>
               ))}
           </ul>

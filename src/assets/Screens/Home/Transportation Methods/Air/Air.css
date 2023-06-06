@@ -192,21 +192,55 @@
 }
 .AirTransportationMethod .card-input .data-overlay li {
   position: relative;
-  font-weight: 600;
+  font-weight: 400;
   cursor: pointer;
-  padding: 8px 10px 8px 35px;
+  padding: 8px;
+  transition: var(--main-transition);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.AirTransportationMethod .card-input .data-overlay li .left {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.AirTransportationMethod .card-input .data-overlay li .left i {
+  color: var(--orange-color);
   transition: var(--main-transition);
 }
-.AirTransportationMethod .card-input .data-overlay li::before {
-  position: absolute;
-  content: "\f5b0";
-  font-weight: 900;
-  font-family: "Font Awesome 5 Free";
-  left: 10px;
+.AirTransportationMethod .card-input .data-overlay li .left span p {
+  padding: 0;
+  line-height: 1.2;
+  transition: var(--main-transition);
 }
+.AirTransportationMethod .card-input .data-overlay li .left span p:first-child {
+  color: #000;
+}
+.AirTransportationMethod .card-input .data-overlay li .right {
+  position: relative;
+  width: 35px;
+  height: 20px;
+}
+.AirTransportationMethod .card-input .data-overlay li .right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .AirTransportationMethod .card-input .data-overlay li:hover {
+  padding-left: 15px;
+}
+.AirTransportationMethod .card-input .data-overlay li:hover .left i,
+.AirTransportationMethod
+  .card-input
+  .data-overlay
+  li:hover
+  .left
+  span
+  p:first-child {
   color: var(--main-color);
-  padding-left: 50px;
 }
 .AirTransportationMethod .card-input input.active + .data-overlay {
   opacity: 1;
@@ -233,6 +267,7 @@
 }
 .AirTransportationMethod .card-input .data-overlay .menu > span i {
   font-size: 20px;
+  color: var(--orange-color);
 }
 .AirTransportationMethod .card-input .data-overlay .menu span.active {
   color: var(--main-color-alt);
