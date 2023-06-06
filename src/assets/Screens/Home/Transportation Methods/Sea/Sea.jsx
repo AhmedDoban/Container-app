@@ -81,13 +81,19 @@ function SeaTransportationMethod() {
   # Shipping LCL
  ******************************************/
   const [CargoLCL, SetCargoLCL] = useState("");
-  const WEIGHT_SIZE_OPtions = ["KG", "LB"];
-  const Volume_Size_OPtions = ["CBM", "CFT", "CIN"];
+  const WEIGHT_SIZE_OPtions = ["KG"];
+  const height_Size_OPtions = ["CM"];
+  const Length_SIZE_OPtions = ["CM"];
+  const Width_Size_OPtions = ["CM"];
   const [LCLData, SetLCLData] = useState({
     WEIGHT: 1,
     WEIGHT_SIZE: WEIGHT_SIZE_OPtions[0],
-    Volume: 1,
-    Volume_Size: Volume_Size_OPtions[0],
+    height: 1,
+    height_Size: height_Size_OPtions[0],
+    Length: 1,
+    Length_SIZE: Length_SIZE_OPtions[0],
+    Width: 1,
+    Width_Size: Width_Size_OPtions[0],
   });
 
   useEffect(() => {
@@ -96,9 +102,17 @@ function SeaTransportationMethod() {
       "" +
       LCLData.WEIGHT_SIZE +
       " , " +
-      LCLData.Volume +
+      LCLData.height +
       "" +
-      LCLData.Volume_Size;
+      LCLData.height_Size +
+      " , " +
+      LCLData.Length +
+      "" +
+      LCLData.Length_SIZE +
+      " , " +
+      LCLData.Width +
+      "" +
+      LCLData.Width_Size;
     SetCargoLCL(CargoLCLData);
   }, [LCLData]);
 
@@ -171,7 +185,7 @@ function SeaTransportationMethod() {
                       }
                     >
                       <div className="left">
-                        <i className="fa-solid fa-plane-departure"></i>
+                        <i className="fa-solid fa-anchor"></i>
                         <span>
                           <p>{data.name}</p>
                           <p>{data.country}</p>
@@ -253,7 +267,7 @@ function SeaTransportationMethod() {
                       }
                     >
                       <div className="left">
-                        <i className="fa-solid fa-plane-departure"></i>
+                        <i className="fa-solid fa-anchor"></i>
                         <span>
                           <p>{data.name}</p>
                           <p>{data.country}</p>
@@ -403,25 +417,71 @@ function SeaTransportationMethod() {
                     </div>
                   </div>
                   <div className="input-box-lcl">
-                    <label htmlFor="TotalVolume">Total Volume*</label>
+                    <label htmlFor="TotalHeight">Total Height*</label>
                     <div className="inputs-box">
                       <input
                         type="number"
-                        placeholder="Volume"
-                        id="TotalVolume"
+                        placeholder="Height"
+                        id="TotalHeight"
                         min={1}
-                        value={LCLData.Volume}
+                        value={LCLData.height}
                         onChange={(e) =>
-                          SetLCLData({ ...LCLData, Volume: e.target.value })
+                          SetLCLData({ ...LCLData, height: e.target.value })
                         }
                       />
                       <ReactDropdown
-                        options={Volume_Size_OPtions}
+                        options={height_Size_OPtions}
                         placeholder="Volume"
                         onChange={(e) =>
-                          SetLCLData({ ...LCLData, Volume_Size: e.value })
+                          SetLCLData({ ...LCLData, height_Size: e.value })
                         }
-                        value={Volume_Size_OPtions[0]}
+                        value={height_Size_OPtions[0]}
+                      />
+                    </div>
+                  </div>
+                  <div className="input-box-lcl">
+                    <label htmlFor="TotalLength">Total Length*</label>
+                    <div className="inputs-box">
+                      <input
+                        type="number"
+                        placeholder="Length"
+                        id="TotalLength"
+                        min={1}
+                        value={LCLData.Length}
+                        onChange={(e) =>
+                          SetLCLData({ ...LCLData, Length: e.target.value })
+                        }
+                      />
+                      <ReactDropdown
+                        options={Length_SIZE_OPtions}
+                        placeholder="Length"
+                        onChange={(e) =>
+                          SetLCLData({ ...LCLData, Length_SIZE: e.value })
+                        }
+                        value={Length_SIZE_OPtions[0]}
+                      />
+                    </div>
+                  </div>
+                  <div className="input-box-lcl">
+                    <label htmlFor="TotalWidth">Total Width*</label>
+                    <div className="inputs-box">
+                      <input
+                        type="number"
+                        placeholder="Width"
+                        id="TotalWidth"
+                        min={1}
+                        value={LCLData.Width}
+                        onChange={(e) =>
+                          SetLCLData({ ...LCLData, Width: e.target.value })
+                        }
+                      />
+                      <ReactDropdown
+                        options={Width_Size_OPtions}
+                        placeholder="Volume"
+                        onChange={(e) =>
+                          SetLCLData({ ...LCLData, Width_Size: e.value })
+                        }
+                        value={Width_Size_OPtions[0]}
                       />
                     </div>
                   </div>

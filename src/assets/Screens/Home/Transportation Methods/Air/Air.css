@@ -290,104 +290,7 @@
   padding: 20px;
   width: 100%;
 }
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# Air Transportation Method card input overlay fcl
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.AirTransportationMethod .card-input .data-overlay .box-data .fcl-box {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  max-width: 100%;
-}
-.AirTransportationMethod
-  .card-input
-  .data-overlay
-  .box-data
-  .fcl-box
-  .input-box-fcl {
-  position: relative;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-}
-.AirTransportationMethod
-  .card-input
-  .data-overlay
-  .box-data
-  .fcl-box
-  .input-box-fcl:nth-child(2) {
-  width: fit-content;
-}
-.AirTransportationMethod .card-input .data-overlay .box-data .fcl-box .actions {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  max-width: 100%;
-  border-bottom: 1px solid #eee;
-  padding: 0 0 10px 0;
-}
 
-.AirTransportationMethod
-  .card-input
-  .data-overlay
-  .box-data
-  .fcl-box
-  .actions
-  input,
-.AirTransportationMethod
-  .card-input
-  .data-overlay
-  .box-data
-  .fcl-box
-  .data
-  input[type="number"] {
-  width: 70px;
-  height: 36px;
-  text-align: center;
-}
-.AirTransportationMethod
-  .card-input
-  .data-overlay
-  .box-data
-  .fcl-box
-  .actions
-  button,
-.AirTransportationMethod
-  .card-input
-  .data-overlay
-  .box-data
-  .fcl-box
-  .data
-  button {
-  min-width: 36px;
-  height: 36px;
-  border-radius: 6px;
-  border: 0;
-  cursor: pointer;
-  color: var(--orange-color);
-}
-.AirTransportationMethod .card-input .data-overlay .box-data .fcl-box .data {
-  position: relative;
-  gap: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  flex-direction: column;
-}
-.AirTransportationMethod
-  .card-input
-  .data-overlay
-  .box-data
-  .fcl-box
-  .data
-  .box-data-chosen {
-  display: flex;
-  gap: 5px;
-}
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Air Transportation Method card input overlay LCL
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
@@ -396,6 +299,7 @@
   display: flex;
   gap: 10px;
   width: 100%;
+  flex-direction: column;
 }
 .AirTransportationMethod
   .card-input
@@ -406,7 +310,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  background-color: #eee;
+  background-color: transparent;
   padding: 5px 5px 0 5px;
   border-radius: 5px 5px 0 0px;
   display: flex;
@@ -438,7 +342,7 @@
   width: 100%;
   padding: 10px 4px;
   font-size: 14px;
-  background-color: #eee;
+  background-color: transparent;
   border-bottom: 1px solid #ccc;
   transition: var(--main-transition);
 }
@@ -465,7 +369,7 @@
   height: 36px;
   border: 0 !important;
   border-radius: 2px;
-  background-color: #eee !important;
+  background-color: transparent !important;
   border-bottom: 1px solid #ccc !important;
 }
 .AirTransportationMethod
